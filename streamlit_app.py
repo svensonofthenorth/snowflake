@@ -29,3 +29,5 @@ streamlit.write('The user entered ', fruit_choice)
 
 fruitViceRequest = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruitViceRequest.json())
+
+import snowflake.connector
