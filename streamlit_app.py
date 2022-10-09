@@ -30,9 +30,10 @@ try:
   if not fruit_choice:
     streamlit.error("Fuck off and die")
   else: 
-    fruitViceRequest = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-    fruityvice_normalised = pandas.json_normalize(fruitViceRequest.json())
-    streamlit.dataframe(fruityvice_normalised)
+    def get_fruityvice_data(this_fruit_choice):
+      fruitViceRequest = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+      fruityvice_normalised = pandas.json_normalize(fruitViceRequest.json())
+      return fruityvice_normalised
 
 except URLError as e:
     streamlit.error()
